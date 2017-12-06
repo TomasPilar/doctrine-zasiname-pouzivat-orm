@@ -35,4 +35,13 @@ final class PersonFacade
 		return $person;
 	}
 
+
+	public function rename(Person $person, $firstName, $lastName)
+	{
+		$person->setFirstName($firstName);
+		$person->setLastName($lastName);
+
+		$this->personRepository->save($person);
+	}
+
 }

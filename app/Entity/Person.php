@@ -96,6 +96,12 @@ class Person
 	}
 
 
+	public function getName()
+	{
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
+
+
 	/**
 	 * @return DateTime
 	 */
