@@ -32,7 +32,8 @@
 		"latte/latte": "^2.4",
 		"tracy/tracy": "^2.4",
 		"dg/adminer-custom": "^1.9",
-		"dtforce/nette-doctrine": "^1.0"
+		"dtforce/nette-doctrine": "^1.0",
+		"kdyby/console": "^2.7"
 	},
 	"require-dev": {
 		"nette/tester": "^2.0"
