@@ -27,3 +27,5 @@ services:
 	- App\Components\TodoList\TodoListControlFactoryInterface
 	- App\Model\ProjectRepository
 	- App\Model\ProjectFasade
+	- App\Model\TodoRepository
+	- App\Model\TodoFacade

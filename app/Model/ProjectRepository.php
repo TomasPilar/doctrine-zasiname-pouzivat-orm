@@ -37,4 +37,14 @@ final class ProjectRepository
 		return $this->repository->findBy([], ['name' => 'asc']);
 	}
 
+
+	/**
+	 * @param $id
+	 * @return null|Project
+	 */
+	public function findById($id)
+	{
+		return $this->repository->find($id);
+	}
+
 }

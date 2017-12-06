@@ -28,4 +28,14 @@ final class ProjectFasade
 		return $this->projectRepository->findAll();
 	}
 
+
+	/**
+	 * @param $id
+	 * @return Project|null
+	 */
+	public function findById($id)
+	{
+		return $this->projectRepository->findById($id);
+	}
+
 }

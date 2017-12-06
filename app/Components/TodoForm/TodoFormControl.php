@@ -5,6 +5,7 @@ namespace App\Components\TodoForm;
 use App\Forms\FormFactory;
 use App\Model\PersonFacade;
 use App\Model\ProjectFasade;
+use App\Model\TodoFacade;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 
@@ -27,15 +28,22 @@ class TodoFormControl extends Control
 	 */
 	private $personFacade;
 
+	/**
+	 * @var TodoFacade
+	 */
+	private $todoFacade;
+
 
 	public function __construct(
 		FormFactory $formFactory,
 		ProjectFasade $projectFasade,
-		PersonFacade $personFacade
+		PersonFacade $personFacade,
+		TodoFacade $todoFacade
 	){
 		$this->formFactory = $formFactory;
 		$this->projectFasade = $projectFasade;
 		$this->personFacade = $personFacade;
+		$this->todoFacade = $todoFacade;
 	}
 
 
@@ -66,8 +74,12 @@ class TodoFormControl extends Control
 
 	public function process(Form $form, array $values)
 	{
-		dump($values);
-		die;
+		$project = $this->projectFasade->findById($values['project']);
+		$person = $this->personFacade->findById($values['person']);
+
+		$todo = $this->todoFacade->createTodo($values['message'], $project, $person);
+
+		$this->redirect('this');
 	}
 
 
