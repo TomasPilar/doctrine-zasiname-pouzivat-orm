@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\IdentifierTrait;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,13 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Person
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
-	 * @var int
-	 */
-	private $id;
+	use IdentifierTrait;
 
 	/**
 	 * @ORM\Column(type="string")
@@ -48,15 +43,6 @@ class Person
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
-	}
-
-
-	/**
-	 * @return int
-	 */
-	public function getId()
-	{
-		return $this->id;
 	}
 
 
