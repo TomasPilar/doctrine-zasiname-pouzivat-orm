@@ -36,7 +36,9 @@ class HomepagePresenter extends BasePresenter
 
 		dump($person);
 
+		$this->personFacade->deletePerson($person);
 
+		dump($person);
 
 		die;
 	}

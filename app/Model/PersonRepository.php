@@ -27,4 +27,11 @@ final class PersonRepository
 		$this->entityManager->flush();
 	}
 
+
+	public function delete(Person $person)
+	{
+		$this->entityManager->remove($person);
+		$this->entityManager->flush();
+	}
+
 }

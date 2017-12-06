@@ -44,4 +44,10 @@ final class PersonFacade
 		$this->personRepository->save($person);
 	}
 
+
+	public function deletePerson(Person $person)
+	{
+		$this->personRepository->delete($person);
+	}
+
 }
