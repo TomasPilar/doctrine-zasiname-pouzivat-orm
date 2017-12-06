@@ -26,20 +26,26 @@ class HomepagePresenter extends BasePresenter
 	{
 		// 1) Vytvořit instanci třídy Person
 		// 2) Uložit instanci přes Doctrine do databáze
-		$person = $this->personFacade->createPerson('Tomáš', 'Pilař');
-
-		dump($person);
-
+		//$person = $this->personFacade->createPerson('Tomáš', 'Pilař');
+		//
+		//dump($person);
+		//
 		// Editace
 		//$person->setLastName('Novák');
-		$this->personFacade->rename($person, 'Lukáš', 'Novák');
+		//$this->personFacade->rename($person, 'Lukáš', 'Novák');
+		//
+		//dump($person);
+		//
+		//$this->personFacade->deletePerson($person);
+		//
+		//dump($person);
+		// Vyhledávání podle ID
+		//$person = $this->personFacade->getById(9);
+		//dump($person->getFirstName());
 
-		dump($person);
-
-		$this->personFacade->deletePerson($person);
-
-		dump($person);
-
+		// Vyhledávání přes příjmení
+		$persons = $this->personFacade->findByLastName('Pilař');
+		dump($persons);
 		die;
 	}
 

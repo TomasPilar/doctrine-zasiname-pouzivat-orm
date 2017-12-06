@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Entity\Person;
+use App\Exception\PersonEntityNotFoundException;
 
 
 final class PersonFacade
@@ -48,6 +49,33 @@ final class PersonFacade
 	public function deletePerson(Person $person)
 	{
 		$this->personRepository->delete($person);
+	}
+
+
+	/**
+	 * @param $id
+	 * @return Person|null
+	 */
+	public function findById($id)
+	{
+		return $this->personRepository->findById($id);
+	}
+
+
+	/**
+	 * @param $id
+	 * @return Person
+	 * @throws PersonEntityNotFoundException
+	 */
+	public function getById($id)
+	{
+		return $this->personRepository->getById($id);
+	}
+
+
+	public function findByLastName($lastName)
+	{
+		return $this->personRepository->findByLastName($lastName);
 	}
 
 }
