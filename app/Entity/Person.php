@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Traits\IdentifierTrait;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -34,6 +35,12 @@ class Person
 	 */
 	private $updatedAt;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="Project", inversedBy="persons", fetch="LAZY")
+	 * @var Project[]
+	 */
+	private $projects;
+
 
 	/**
 	 * @param string $firstName
@@ -43,6 +50,7 @@ class Person
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
+		$this->projects = new ArrayCollection;
 	}
 
 
@@ -103,6 +111,29 @@ class Person
 	public function setUpdatedAt($updatedAt)
 	{
 		$this->updatedAt = $updatedAt;
+	}
+
+
+	/**
+	 * @return Project[]
+	 */
+	public function getProjects()
+	{
+		return $this->projects;
+	}
+
+
+	public function addProject(Project $project)
+	{
+		if ( ! $this->projects->contains($project)) {
+			$this->projects->add($project);
+		}
+	}
+
+
+	public function removeProject(Project $project)
+	{
+		$this->projects->removeElement($project);
 	}
 
 }

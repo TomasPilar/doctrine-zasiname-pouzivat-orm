@@ -27,6 +27,12 @@ class Todo
 	 */
 	private $isDone = FALSE;
 
+	/**
+	 * @ORM\ManyToOne(targetEntity="Project", inversedBy="todos")
+	 * @var Project
+	 */
+	private $project;
+
 
 	/**
 	 * @param string $message
@@ -72,6 +78,21 @@ class Todo
 	public function setIsDone($isDone)
 	{
 		$this->isDone = $isDone;
+	}
+
+
+	/**
+	 * @return Project
+	 */
+	public function getProject()
+	{
+		return $this->project;
+	}
+
+
+	public function setProject(Project $project)
+	{
+		$this->project = $project;
 	}
 
 }
