@@ -22,3 +22,8 @@ console:
 services:
 	- App\Model\PersonRepository
 	- App\Model\PersonFacade
+	# components
+	- App\Components\TodoForm\TodoFormControlFactoryInterface
+	- App\Components\TodoList\TodoListControlFactoryInterface
+	- App\Model\ProjectRepository
+	- App\Model\ProjectFasade

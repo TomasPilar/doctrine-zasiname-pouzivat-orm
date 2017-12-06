@@ -76,4 +76,14 @@ final class PersonRepository
 		return $this->repository->findBy(['lastName' => $lastName], ['id' => 'desc'], 3);
 	}
 
+
+	/**
+	 * @return Person[]
+	 */
+	public function findAll()
+	{
+		//return $this->repository->findAll();
+		return $this->repository->findBy([], ['id' => 'asc']);
+	}
+
 }

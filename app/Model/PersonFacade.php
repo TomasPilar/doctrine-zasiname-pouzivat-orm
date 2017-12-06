@@ -78,4 +78,13 @@ final class PersonFacade
 		return $this->personRepository->findByLastName($lastName);
 	}
 
+
+	/**
+	 * @return Person[]
+	 */
+	public function findAll()
+	{
+		return $this->personRepository->findAll();
+	}
+
 }
