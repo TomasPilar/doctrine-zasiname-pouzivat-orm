@@ -43,13 +43,11 @@ class Person
 	/**
 	 * @param string $firstName
 	 * @param string $lastName
-	 * @param DateTime $updatedAt
 	 */
-	public function __construct($firstName, $lastName, DateTime $updatedAt)
+	public function __construct($firstName, $lastName)
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
-		$this->updatedAt = $updatedAt;
 	}
 
 
