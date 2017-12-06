@@ -4,21 +4,21 @@ namespace App\Presenters;
 
 
 use App\Entity\Person;
-use App\Model\PersonRepository;
+use App\Model\PersonFacade;
 
 
 class HomepagePresenter extends BasePresenter
 {
 
 	/**
-	 * @var PersonRepository
+	 * @var PersonFacade
 	 */
-	private $personRepository;
+	private $personFacade;
 
 
-	public function __construct(PersonRepository $personRepository)
+	public function __construct(PersonFacade $personFacade)
 	{
-		$this->personRepository = $personRepository;
+		$this->personFacade = $personFacade;
 	}
 
 
@@ -27,8 +27,9 @@ class HomepagePresenter extends BasePresenter
 		// 1) Vytvořit instanci třídy Person
 		// 2) Uložit instanci přes Doctrine do databáze
 
-		$person = new Person('Tomáš', 'Pilař');
-		$this->personRepository->save($person);
+		$person = $this->personFacade->createPerson('Tomáš', 'Pilař');
+
+		dump($person);
 
 		die;
 	}

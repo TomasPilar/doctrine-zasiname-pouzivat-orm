@@ -1,0 +1,24 @@
+extensions:
+	doctrine: DTForce\DoctrineExtension\DI\DoctrineExtension
+	console: Kdyby\Console\DI\ConsoleExtension
+
+doctrine:
+	connection:
+		driver: pdo_pgsql
+		host: localhost
+		port: 5432
+		user: postgres
+		password: postgres
+		dbname: "zaciname-pouzivat-orm"
+
+	debug: true
+	proxyDir: %tempDir%/cache/proxies
+	sourceDir: %appDir%/Entity
+
+console:
+	url: "http://doctrine-basic.local"
+
+
+services:
+	- App\Model\PersonRepository
+	- App\Model\PersonFacade

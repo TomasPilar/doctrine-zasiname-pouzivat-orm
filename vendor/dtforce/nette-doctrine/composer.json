@@ -1,0 +1,27 @@
+{
+	"name": "dtforce/nette-doctrine",
+	"description": "A lightweight Doctrine integration extension for Nette framework.",
+	"authors": [
+		{
+			"name": "DTForce - Jan Mareš",
+			"email": "jan.mares@dtforce.com",
+			"homepage": "http://www.dtforce.com",
+			"role": "Developer"
+		}
+	],
+	"license": [
+	       "LGPL-2.1"
+	],
+	"support":{
+		"issues": "https://github.com/DTForce/nette-doctrine/issues"
+	},
+	"require": {
+		"php": ">=5.4",
+		"doctrine/orm": ">=2.5.1"
+	},
+	"autoload": {
+		"psr-4" : {
+			"DTForce\\DoctrineExtension\\" : "src"
+		}
+	}
+}
