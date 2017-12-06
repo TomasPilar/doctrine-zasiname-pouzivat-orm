@@ -1,12 +1,18 @@
 <table class="table">
 	<thead>
 	<tr>
-		<td>Test</td>
+		<td>ID</td>
+		<td>Úkol</td>
+		<td>Projekt</td>
+		<td></td>
 	</tr>
 	</thead>
 	<tbody>
-	<tr>
-		<td>Ahoj</td>
-	</tr>
+		<tr n:foreach="$todos as $todo">
+			<td>{$todo->getId()}</td>
+			<td>{$todo->getMessage()}</td>
+			<td>{$todo->getProject()->getName()}</td>
+			<td><a n:href="delete! $todo->getId()">Smazat</a></td>
+		</tr>
 	</tbody>
 </table>

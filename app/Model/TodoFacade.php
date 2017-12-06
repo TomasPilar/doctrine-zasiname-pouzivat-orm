@@ -43,5 +43,23 @@ class TodoFacade
 
 		return $todo;
 	}
+
+
+	public function findAll()
+	{
+		return $this->todoRepository->findAll();
+	}
+
+
+	public function findById($id)
+	{
+		return $this->todoRepository->findById($id);
+	}
+
+
+	public function deleteTodo(Todo $todo)
+	{
+		$this->todoRepository->remove($todo);
+	}
 	
 }
